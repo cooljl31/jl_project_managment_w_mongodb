@@ -1,0 +1,20 @@
+.row.clearfix
+  - if task.completed?
+    .complete
+      = link_to complete_project_task_path(@project, task.id), method: :patch do
+        i.glyphicon.glyphicon-ok style="opacity: .4"
+    .todo_item
+      p style="opacity: .4"
+        strike= task.content
+    .trash
+      = link_to project_task_path(@project, task.id), method: :delete, data: { confirm: 'realy?'} do
+        i.glyphicon.glyphicon-trash
+  - else
+    .complete
+      = link_to complete_project_task_path(@project, task.id), method: :patch do
+        i.glyphicon.glyphicon-ok
+    .todo_item
+      p=< task.content
+    .trash
+      = link_to project_task_path(@project, task.id), method: :delete, data: { confirm: 'are u sure?'} do
+        i.glyphicon.glyphicon-trash

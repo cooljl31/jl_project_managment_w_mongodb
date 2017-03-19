@@ -1,0 +1,4 @@
+= simple_form_for([@project, @project.tasks.build], wrapper: :horizontal_form) do |f|
+  = f.input :content, placeholder: 'New Task', label: false
+  = f.button :submit
+br
